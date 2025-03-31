@@ -1,0 +1,2 @@
+domaincontrol.com	
+cloudflare.com	104.16.132.229 104.16.133.229 
