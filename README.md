@@ -1,4 +1,4 @@
-This is the source code of DSN #204. We provide a complete example of the code, including its full input and the output files generated when run locally.
+This is the source code of *Decoding DNS Centralization: Measuring and Identifying NS Domains Across Hosting Providers*. We provide a complete example of the code, including its full input and the output files generated when run locally.
 
 Here we will mainly outlines the input and output formats and examples for the provided code.
 
@@ -58,7 +58,12 @@ nicolas.ns.cloudflare.com	Cloudflare, Inc.
 **Example:**
 ```
 ns-cloud-a4.googledomains.com	216.239.38.106 
-kim.ns.cloudflare.com	172.64.32.126 108.162.192.126 173.245.58.126 
+kim.ns.cloudflare.com	172.64.32.126 108.162.192.126 173.245.58.126
+```
+
+## Usage
+```
+python3 main.py
 ```
 
 ## Output File Formats
