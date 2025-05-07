@@ -2,6 +2,17 @@ This is the source code of *Decoding DNS Centralization: Measuring and Identifyi
 
 Here we will mainly outlines the input and output formats and examples for the provided code.
 
+## Usage
+Before the usage, please install all packages required.
+```
+pip install -r requirements.txt
+```
+
+If you want to run this tool, just run the main file.
+```
+python3 main.py
+```
+If it helps, we use Python 3.12 during the development of this tool.
 ## Input File Formats
 In the source code, we require four input datasets: hosting relationships, WHOIS data, certificate data, and IP data. The input files are named `Example_hosting_relationship.txt`, `Example_whois.txt`, `Example_certificates.txt`, and `Example_ips.txt`, respectively. The code for input file naming is shown below, and you may modify it as needed.
 ```python
@@ -59,11 +70,6 @@ nicolas.ns.cloudflare.com	Cloudflare, Inc.
 ```
 ns-cloud-a4.googledomains.com	216.239.38.106 
 kim.ns.cloudflare.com	172.64.32.126 108.162.192.126 173.245.58.126
-```
-
-## Usage
-```
-python3 main.py
 ```
 
 ## Output File Formats
