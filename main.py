@@ -8,7 +8,7 @@ import Load_data
 sys.setrecursionlimit(1 << 25)
 
 class Edge:
-    __slots__ = ['From', 'To', 'Next', 'Type']  # 优化内存
+    __slots__ = ['From', 'To', 'Next', 'Type'] 
     def __init__(self, From, To, Next, Type):
         self.From, self.To, self.Next, self.Type = From, To, Next, Type
 
@@ -22,7 +22,6 @@ Num_of_subdomain = dict()
 TLD_of_ns_num = dict()
 Hosted_by = dict()
 Ban_TLD = {"cm", "commmm", "com2", "comv", "ro", "comm", "or", "lol", "xyz", "comf"}
-#"commmm" "com2" "comv" "comm" "comf" "or"
 
 Have_Edge = set()
 def Find(item):
@@ -177,22 +176,18 @@ company_suffixes =     ["ltd", "Co.", "Inc", "LLC", "GmbH", "AG", "S.A.", "S/A",
                         "Bilisim", "Solutions", "Xiamen",  ",", ".", "\"", " ", "(", ")"]
 
 def remove_company_suffixes(input_str):
-        # 对于列表中的每种需要去除的字段
     for suffix in company_suffixes:
-            # 替换为""（即删除）
         input_str = input_str.replace(suffix.lower(), "")
     return input_str.strip()
 
 def Comp_str(Str_list, Flag=False):
     def filter_string(string:str):
-        # 去除常见公司名后缀、前缀
         string = str(string)
         Str = ""
         for s in string:
             Str += s
         Str = Str.lower()
         Str = remove_company_suffixes(Str)
-        # 仅保留英文字母和数字
         pattern = r"[^a-zA-Z0-9]+"
         filtered_string = re.sub(pattern, '', Str).lower()
         if filtered_string != "":
@@ -207,15 +202,9 @@ def Comp_str(Str_list, Flag=False):
             m, n = n, m
         if max(m,n) == 0:
             return False
-
-        # 初始化矩阵
         dp = [[0] * (n + 1) for _ in range(2)]
-
-        # 第一行的初始化
         for j in range(n + 1):
             dp[0][j] = j
-
-        # 逐行计算编辑距离
         for i in range(1, m + 1):
             dp[i % 2][0] = i
             for j in range(1, n + 1):
@@ -223,8 +212,6 @@ def Comp_str(Str_list, Flag=False):
                     dp[i % 2][j] = dp[(i - 1) % 2][j - 1]
                 else:
                     dp[i % 2][j] = min(dp[(i - 1) % 2][j], dp[i % 2][j - 1], dp[(i - 1) % 2][j - 1]) + 1
-
-        # 返回归一化编辑距离
         return dp[m % 2][n] / max(m, n)
 
     def baseline(a1, b1):
@@ -247,8 +234,6 @@ def Comp_str(Str_list, Flag=False):
     fa_Final = dict()
     for item in Str_list:
         fa_Final[item] = item
-    #return fa
-
     Deal = dict()
     Len = len(Str_list)
     Dict_after_deal = dict()

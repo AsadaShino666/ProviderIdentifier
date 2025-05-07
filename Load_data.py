@@ -6,9 +6,6 @@ Ban = ["proxy", "priva", "n/a", 'redacted', "domain admin", "domain manag", "dis
                "registrant", "null", "masked", "none", "na", "hidden", "registrator domennih imen", "registrar", "隐私"]
 
 def load_other_data(WHOIS_file, Certificates_file, IP_file):
-    #WHOIS_file = "All_effective_WHOIS.txt"
-    #Certificates_file = "All_effective_certificates.txt"
-    #IP_file = "All_effective_IP.txt"
 
     WHOIS = dict()
     for line in open(WHOIS_file, "r"):
